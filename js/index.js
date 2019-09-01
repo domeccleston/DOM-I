@@ -95,3 +95,7 @@ contactSectionElements[0].textContent = siteContent["contact"]["contact-h4"];
 contactSectionElements[1].textContent = siteContent["contact"]["address"];
 contactSectionElements[2].textContent = siteContent["contact"]["phone"];
 contactSectionElements[2].textContent = siteContent["contact"]["email"];
+
+// 5. update footer section 
+
+document.querySelector('footer').textContent = siteContent.footer.copyright;
