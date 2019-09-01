@@ -37,6 +37,61 @@ const siteContent = {
   },
 };
 
+// Helper functions:
+
+// use query selector to update DOM from siteContent object
+function textUpdate(target, newStr) {
+  document.querySelector(target).textContent = newStr;
+  newStr = siteContent.cta[newStr];
+}
+
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+// 1. update navbar content
+
+const navItems = document.querySelectorAll('nav a');
+
+const navContent = Object.values(siteContent.nav);
+
+navContent.pop();
+
+for (let i = 0; i < navItems.length; i++) {
+  navItems[i].textContent = navContent[i];
+}
+
+// 2. update cta section
+
+
+document.querySelector('.cta-text h1').textContent = siteContent.cta["h1"];
+document.querySelector('.cta-text button').textContent = siteContent.cta["button"];
+document.querySelector("#cta-img").setAttribute("src", siteContent.cta["img-src"]);
+
+//3. update main content section
+
+document.querySelector('.text-content h4').textContent = siteContent["main-content"]["features-h4"];
+document.querySelector('.text-content p').textContent = siteContent["main-content"]["features-content"];
+
+textContentClassElements = document.getElementsByClassName("text-content");
+
+textContentClassElements[1].querySelector('h4').textContent = siteContent["main-content"]["about-h4"];
+textContentClassElements[1].querySelector('p').textContent = siteContent["main-content"]["about-content"];
+
+document.querySelector('#middle-img').setAttribute("src", siteContent["main-content"]["middle-img-src"]);
+
+textContentClassElements[2].querySelector('h4').textContent = siteContent["main-content"]["services-h4"];
+textContentClassElements[2].querySelector('p').textContent = siteContent["main-content"]["services-content"];
+textContentClassElements[3].querySelector('h4').textContent = siteContent["main-content"]["product-h4"];
+textContentClassElements[3].querySelector('p').textContent = siteContent["main-content"]["product-content"];
+textContentClassElements[4].querySelector('h4').textContent = siteContent["main-content"]["vision-h4"];
+textContentClassElements[4].querySelector('p').textContent = siteContent["main-content"]["vision-content"];
+
+// 4. update contact section
+
+contactSectionElements = document.getElementsByClassName('contact')[0].children;
+
+contactSectionElements[0].textContent = siteContent["contact"]["contact-h4"];
+contactSectionElements[1].textContent = siteContent["contact"]["address"];
+contactSectionElements[2].textContent = siteContent["contact"]["phone"];
+contactSectionElements[2].textContent = siteContent["contact"]["email"];
