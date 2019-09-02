@@ -133,3 +133,8 @@ let prepender = document.querySelector(".top-content .text-content p");
 prepender.prepend("prepended this text! ")
 
 document.querySelector('nav').prepend("prepended element");
+
+const myButton = document.getElementsByTagName('button');
+
+myButton[0].addEventListener('click', (event) => event.target.style.backgroundColor = 'blue');
+
