@@ -1,4 +1,4 @@
-// global variables 
+// global variables
 let isRunning = false;
 let stopRunning = false;
 let msCount = 0;
@@ -6,18 +6,21 @@ let msCount = 0;
 // functions
 
 function timerFunction() {
-
   // reset state
   isRunning = true;
   stopRunning = false;
-  if (msTens.textContent !== "-") {return 1}
+  if (msTens.textContent !== "-") {
+    return 1;
+  }
 
   // initialize timer
   digits.style.color = "black";
   const msTimer = window.setInterval(msCallback, 10);
 
   function msCallback() {
-    if (stopRunning === true) {return 1} 
+    if (stopRunning === true) {
+      return 1;
+    }
     msArr = String(msCount).split("");
 
     if (msCount > 1000) {
@@ -35,16 +38,16 @@ function timerFunction() {
 }
 
 function stopFunction() {
-   if (isRunning === true) {
-      return stopRunning = true;
-   }
+  if (isRunning === true) {
+    return (stopRunning = true);
+  }
 }
 
 function resetFunction() {
-   stopFunction();
-   msCount = 0;
-   digits.style.color = "black";
-   timerFunction();
+  stopFunction();
+  msCount = 0;
+  digits.style.color = "black";
+  timerFunction();
 }
 
 // DOM selectors
@@ -62,5 +65,5 @@ const resetButton = document.getElementById("resetButton");
 // event handlers
 
 startButton.addEventListener("click", timerFunction);
-stopButton.addEventListener("click", stopFunction)
-resetButton.addEventListener("click", resetFunction)
+stopButton.addEventListener("click", stopFunction);
+resetButton.addEventListener("click", resetFunction);
