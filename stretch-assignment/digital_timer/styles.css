@@ -1,14 +1,57 @@
 body {
   display: flex;
+  flex-direction: column; 
   justify-content: center;
   align-items: center;
+  font-family: 'VT323', sans-serif;
+}
+
+.colon {
+  display: inline-block;
+  font-size: 100px;
 }
 
 .digit {
   display: inline-block;
-  font-size: 80px;
+  font-size: 100px;
 }
 
 .redDigit {
   color: red;
+}
+
+.buttons {
+  display: flex;  
+  justify-content: space-evenly;
+  align-items: center;
+  height: 5em;
+  width: 35%;
+  padding: 1em;
+}
+
+@media only screen and (max-width: 750px) {
+  .buttons {
+    width: 100%;
+  }
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  width: 25%;
+  border: 5px solid black;
+  border-bottom: 8px solid gray;
+  border-top: 4px solid gray;
+  box-shadow: 1px 2px;
+}
+
+.button:hover {
+  background: lightgray;
+}
+
+.button:active {
+  transform: translateY(2px)
 }
