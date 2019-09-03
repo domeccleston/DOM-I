@@ -18,21 +18,28 @@ function timerFunction() {
   const msTimer = window.setInterval(msCallback, 10);
 
   function msCallback() {
+
+    msArr = String(msCount).split("");
+
     if (stopRunning === true) {
       return 1;
     }
-    msArr = String(msCount).split("");
 
     if (msCount > 1000) {
       digits.style.color = "red";
       isRunning = false;
       return 1;
-    } else {
+    }
+    
+    else {
       msCount++;
       msTens.textContent = msArr[msArr.length - 1];
-      msHundreds.textContent = msArr[msArr.length - 2];
-      secondOnes.textContent = msArr[msArr.length - 3];
-      secondTens.textContent = msArr[msArr.length - 4];
+      if (msArr.length > 1) {msHundreds.textContent = msArr[msArr.length - 2]}
+      else {msHundreds.textContent = "0"}
+      if (msArr.length > 2) {secondOnes.textContent = msArr[msArr.length - 3]}
+      else (secondOnes.textContent = "0")
+      if (msArr.length > 3) {secondTens.textContent = msArr[msArr.length - 4]}
+      else (secondTens.textContent = "0")
     }
   }
 }
@@ -47,7 +54,16 @@ function resetFunction() {
   stopFunction();
   msCount = 0;
   digits.style.color = "black";
-  timerFunction();
+  if (stopRunning !== true) {
+    timerFunction()
+  }
+
+  else {
+    msTens.textContent = "0";
+    msHundreds.textContent = "0";
+    secondOnes.textContent = "0";
+    secondTens.textContent = "0";
+  }
 }
 
 // DOM selectors
